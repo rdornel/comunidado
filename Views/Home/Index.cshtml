@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<dornel.Models.Visual>
+
+<div class="text-center">
+    <h1 class="display-4">COMUNIDADO</h1>
+    <br><br>
+    <div class="row">
+        <div class="col-sm-6 mx-auto">
+        <form action="/" method="POST">
+                <input type="text" name="busca"/>
+                <button type="submit" class="btn btn-primary">Buscar</button>
+
+        </form>
+        </div>
+    </div>
+    </div>
+    <br><br><br>
+    <div class="d-flex justify-content-around bd-highlight">
+    @{int i = 1;}
+    @foreach (var item in Model)
+    {
+        
+        <div class="card" style="width: 22rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center bg-dark text-white">@item.visualnome</h5>
+                <img src="@item.miniatura" class="card-img-top"/>
+                <p class="card-text text-center d-flex justify-content-center">
+                    @item.visualdesc
+                </p>
+                <p class="card-text">
+                    <ul>
+                        <li>Data: @item.visualdata</li>
+                        <li>Palavras Chave: @item.visualkeywords</li>
+                    </ul>
+                </p>
+                <a target="_blank" href="@item.visualurl" class="btn btn-primary d-flex justify-content-center">ACESSO</a>
+            </div>
+        </div>  
+        
+        if(i != 0  && i % 3 == 0)
+        {
+            @:</div><br><br><br><div class="d-flex justify-content-around bd-highlight">
+        }
+        i++; 
+    }
+    @if(i % 3 != 0)
+    {
+        @:</div>
+    }
+    
+</div>
