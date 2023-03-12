@@ -16,3 +16,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.btn-primary {
+  color: #fff;
+  background-color: #5792E0;
+  border-color: #5792E0;
+}
